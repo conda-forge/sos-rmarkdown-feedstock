@@ -6,11 +6,11 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 45e943e4b6a987f594763bccd8232c109580c0142e3fc801e5ed3e187831889b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv
@@ -18,9 +18,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - sos-notebook
     - sos-r
     - markdown-kernel
@@ -29,6 +29,8 @@ requirements:
     - nbformat
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - sos_rmarkdown
 
