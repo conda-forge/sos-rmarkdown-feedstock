@@ -1,18 +1,18 @@
 schema_version: 1
 
 context:
-  version: 0.1.4
+  version: "0.1.6"
 
 package:
   name: sos-rmarkdown
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/sos-rmarkdown/sos-rmarkdown-${{ version }}.tar.gz
-  sha256: 45e943e4b6a987f594763bccd8232c109580c0142e3fc801e5ed3e187831889b
+  url: https://pypi.org/packages/source/s/sos-rmarkdown/sos_rmarkdown-${{ version }}.tar.gz
+  sha256: 186f492f577b5a197c2388452df7fa7136aea0b979d4d3fd7572d1b48b6b2f40
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     - ${{ PYTHON }} -m pip install . --no-deps -vv
